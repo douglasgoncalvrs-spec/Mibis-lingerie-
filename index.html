@@ -2,57 +2,85 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Pedido Mibis Lingerie</title>
+<title>Perfil Revendedora - Mibis</title>
 
 <style>
+
 body{
 font-family:Arial;
 padding:20px;
+background:#f4f4f4;
+}
+
+h2{
+text-align:center;
 }
 
 table{
 width:100%;
 border-collapse:collapse;
+background:white;
 }
 
 td{
-padding:6px;
-border-bottom:1px solid #ddd;
+padding:8px;
+border-bottom:1px solid #ccc;
+text-align:center;
 }
 
-h1{
-text-align:center;
+.produto{
+text-align:left;
+font-weight:bold;
+}
+
+input{
+padding:8px;
+width:100%;
+margin-bottom:10px;
 }
 
 button{
 margin-top:20px;
-padding:15px;
 width:100%;
+padding:15px;
 font-size:18px;
 background:black;
 color:white;
 border:none;
 border-radius:8px;
 }
+
 </style>
+
 </head>
 
 <body>
 
-<h1>Pedido Mibis Lingerie</h1>
+<h2>PERFIL REVENDEDORA</h2>
 
-<label>Revendedora</label>
-<input id="nome" style="width:100%;padding:10px">
+<label>Representante</label>
+<input id="representante">
+
+<label>Vendedora</label>
+<input id="vendedora">
 
 <label>Cidade</label>
-<input id="cidade" style="width:100%;padding:10px">
+<input id="cidade">
 
-<br><br>
+<br>
 
 <table>
 
 <tr>
-<td>Tangas Variadas</td>
+<th>Produto</th>
+<th>P</th>
+<th>M</th>
+<th>G</th>
+<th>GG</th>
+</tr>
+
+<tr>
+<td class="produto">Tangas Variadas</td>
 <td><input type="checkbox" value="Tangas P"></td>
 <td><input type="checkbox" value="Tangas M"></td>
 <td><input type="checkbox" value="Tangas G"></td>
@@ -60,7 +88,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Cueca Feminina</td>
+<td class="produto">Cueca Feminina</td>
 <td><input type="checkbox" value="Cueca Feminina P"></td>
 <td><input type="checkbox" value="Cueca Feminina M"></td>
 <td><input type="checkbox" value="Cueca Feminina G"></td>
@@ -68,7 +96,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Fio Dental</td>
+<td class="produto">Fio Dental</td>
 <td><input type="checkbox" value="Fio Dental P"></td>
 <td><input type="checkbox" value="Fio Dental M"></td>
 <td><input type="checkbox" value="Fio Dental G"></td>
@@ -76,7 +104,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Tangão</td>
+<td class="produto">Tangão</td>
 <td><input type="checkbox" value="Tangão P"></td>
 <td><input type="checkbox" value="Tangão M"></td>
 <td><input type="checkbox" value="Tangão G"></td>
@@ -84,7 +112,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Calçola</td>
+<td class="produto">Calçola</td>
 <td><input type="checkbox" value="Calçola P"></td>
 <td><input type="checkbox" value="Calçola M"></td>
 <td><input type="checkbox" value="Calçola G"></td>
@@ -92,7 +120,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Sutiã com Bojo</td>
+<td class="produto">Sutiã com Bojo</td>
 <td><input type="checkbox" value="Sutiã com Bojo P"></td>
 <td><input type="checkbox" value="Sutiã com Bojo M"></td>
 <td><input type="checkbox" value="Sutiã com Bojo G"></td>
@@ -100,7 +128,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Sutiã sem Bojo</td>
+<td class="produto">Sutiã sem Bojo</td>
 <td><input type="checkbox" value="Sutiã sem Bojo P"></td>
 <td><input type="checkbox" value="Sutiã sem Bojo M"></td>
 <td><input type="checkbox" value="Sutiã sem Bojo G"></td>
@@ -108,7 +136,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Conjuntos</td>
+<td class="produto">Conjuntos</td>
 <td><input type="checkbox" value="Conjuntos P"></td>
 <td><input type="checkbox" value="Conjuntos M"></td>
 <td><input type="checkbox" value="Conjuntos G"></td>
@@ -116,7 +144,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Short Doll Adulto</td>
+<td class="produto">Short Doll Adulto</td>
 <td><input type="checkbox" value="Short Doll Adulto P"></td>
 <td><input type="checkbox" value="Short Doll Adulto M"></td>
 <td><input type="checkbox" value="Short Doll Adulto G"></td>
@@ -124,7 +152,7 @@ border-radius:8px;
 </tr>
 
 <tr>
-<td>Short Doll Infantil</td>
+<td class="produto">Short Doll Infantil</td>
 <td><input type="checkbox" value="Short Doll Infantil P"></td>
 <td><input type="checkbox" value="Short Doll Infantil M"></td>
 <td><input type="checkbox" value="Short Doll Infantil G"></td>
@@ -133,32 +161,38 @@ border-radius:8px;
 
 </table>
 
+<label>Observação</label>
+<input id="obs">
+
 <button onclick="enviar()">Enviar Pedido</button>
 
 <script>
 
 function enviar(){
 
-let nome = document.getElementById("nome").value
-let cidade = document.getElementById("cidade").value
+let representante=document.getElementById("representante").value
+let vendedora=document.getElementById("vendedora").value
+let cidade=document.getElementById("cidade").value
+let obs=document.getElementById("obs").value
 
-let itens = document.querySelectorAll("input[type=checkbox]:checked")
+let marcados=document.querySelectorAll("input[type=checkbox]:checked")
 
-let lista = ""
+let lista=""
 
-itens.forEach(function(item){
-lista += item.value + "%0A"
+marcados.forEach(function(item){
+lista+=item.value+"%0A"
 })
 
-let mensagem =
-"Pedido Mibis%0A%0A"+
-"Revendedora: "+nome+"%0A"+
+let msg="Pedido Mibis%0A%0A"+
+"Representante: "+representante+"%0A"+
+"Revendedora: "+vendedora+"%0A"+
 "Cidade: "+cidade+"%0A%0A"+
-lista
+lista+
+"%0AObs: "+obs
 
-let telefone="5551SEUNUMERO"
+let telefone="5551981517420
 
-window.open("https://wa.me/"+telefone+"?text="+mensagem)
+window.open("https://wa.me/"+telefone+"?text="+msg)
 
 }
 
