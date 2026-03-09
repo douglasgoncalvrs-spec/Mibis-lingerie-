@@ -2,25 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Pedidos Mibis Lingerie</title>
+<title>Mibis Lingerie - Pedido</title>
 
 <style>
 
 body{
 font-family:Arial;
-background:#fff0f6;
+background:#ffe6f0;
 padding:20px;
 }
 
 h2{
-color:#c2185b;
+color:#cc0066;
 }
 
 label{
 font-weight:bold;
 }
 
-input,select{
+input{
 width:100%;
 padding:8px;
 margin-bottom:10px;
@@ -41,16 +41,13 @@ margin-top:20px;
 
 .produto{
 background:white;
-padding:12px;
+padding:10px;
 margin-bottom:10px;
-border-radius:10px;
-box-shadow:0 0 5px rgba(0,0,0,0.1);
+border-radius:8px;
 }
 
-.total{
-font-size:18px;
-font-weight:bold;
-margin-top:15px;
+.tamanhos label{
+margin-right:10px;
 }
 
 </style>
@@ -59,7 +56,7 @@ margin-top:15px;
 
 <body>
 
-<h2>Mibis Lingerie - Pedido</h2>
+<h2>Mibis Lingerie</h2>
 
 <label>Representante</label>
 <input id="representante">
@@ -83,10 +80,6 @@ margin-top:15px;
 
 <div id="produtos"></div>
 
-<div class="total">
-Total de peças: <span id="total">0</span>
-</div>
-
 <button onclick="enviar()">Enviar Pedido</button>
 
 <script>
@@ -104,8 +97,6 @@ let variedades=[
 "Calcinha Fio"
 ]
 
-// você pode colocar até 300 produtos aqui
-
 function criarProdutos(){
 
 let container=document.getElementById("produtos")
@@ -119,17 +110,14 @@ div.innerHTML=`
 
 <b>${variedades[i]}</b>
 
-<label>Tamanho</label>
-<select id="tam${i}">
-<option></option>
-<option>P</option>
-<option>M</option>
-<option>G</option>
-<option>GG</option>
-</select>
+<div class="tamanhos">
 
-<label>Quantidade</label>
-<input type="number" min="0" id="qtd${i}" oninput="somar()">
+<label><input type="checkbox" value="${variedades[i]} P"> P</label>
+<label><input type="checkbox" value="${variedades[i]} M"> M</label>
+<label><input type="checkbox" value="${variedades[i]} G"> G</label>
+<label><input type="checkbox" value="${variedades[i]} GG"> GG</label>
+
+</div>
 
 `
 
@@ -141,26 +129,6 @@ container.appendChild(div)
 
 criarProdutos()
 
-function somar(){
-
-let total=0
-
-for(let i=0;i<variedades.length;i++){
-
-let qtd=document.getElementById("qtd"+i)
-
-if(qtd && qtd.value){
-
-total+=parseInt(qtd.value)
-
-}
-
-}
-
-document.getElementById("total").innerText=total
-
-}
-
 function enviar(){
 
 let representante=document.getElementById("representante").value
@@ -170,34 +138,31 @@ let codigo=document.getElementById("codigo").value
 let retorno=document.getElementById("retorno").value
 let obs=document.getElementById("obs").value
 
-let texto="PEDIDO MIBIS LINGERIE\n\n"
+let marcados=document.querySelectorAll("input[type=checkbox]:checked")
 
-texto+="Representante: "+representante+"\n"
-texto+="Revendedora: "+revendedora+"\n"
-texto+="Cidade: "+cidade+"\n"
-texto+="Código: "+codigo+"\n\n"
+let lista=""
 
-texto+="Acerto Previsto: "+retorno+"\n"
-texto+="Observação: "+obs+"\n\n"
+marcados.forEach(function(item){
 
-texto+="Produtos:\n"
+lista+=item.value+"\n"
 
-for(let i=0;i<variedades.length;i++){
+})
 
-let tam=document.getElementById("tam"+i).value
-let qtd=document.getElementById("qtd"+i).value
+let msg=
 
-if(qtd>0){
+"Pedido Mibis Lingerie\n\n"+
 
-texto+=variedades[i]+" - "+tam+" - "+qtd+" peças\n"
+"Representante: "+representante+"\n"+
+"Revendedora: "+revendedora+"\n"+
+"Cidade: "+cidade+"\n"+
+"Código: "+codigo+"\n\n"+
 
-}
+"Acerto Previsto: "+retorno+"\n"+
+"Observação: "+obs+"\n\n"+
 
-}
+"Produtos:\n"+lista
 
-let numero="5551981517420"
-
-let url="https://wa.me/"+numero+"?text="+encodeURIComponent(texto)
+let url="https://wa.me/5551981517420?text="+encodeURIComponent(msg)
 
 window.open(url)
 
