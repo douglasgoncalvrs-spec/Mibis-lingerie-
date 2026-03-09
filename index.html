@@ -5,14 +5,51 @@
 <title>Mibis Lingerie - Pedido Revendedora</title>
 
 <style>
-body{font-family:Arial;background:#f5f5f5;padding:15px;}
-h2{text-align:center;}
-.box{background:white;padding:15px;border-radius:10px;margin-bottom:15px;}
-input{width:100%;padding:8px;margin-bottom:10px;}
-table{width:100%;border-collapse:collapse;background:white;}
-td,th{padding:6px;border-bottom:1px solid #ddd;text-align:center;}
-.prod{font-weight:bold;text-align:left;}
-button{width:100%;padding:15px;background:black;color:white;font-size:18px;border:none;border-radius:8px;margin-top:15px;}
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:20px;
+}
+
+h2{
+text-align:center;
+}
+
+input{
+width:100%;
+padding:8px;
+margin-bottom:10px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+td,th{
+padding:6px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+.prod{
+text-align:left;
+font-weight:bold;
+}
+
+button{
+width:100%;
+padding:15px;
+background:black;
+color:white;
+font-size:18px;
+border:none;
+border-radius:8px;
+margin-top:15px;
+}
+
 </style>
 
 </head>
@@ -21,7 +58,6 @@ button{width:100%;padding:15px;background:black;color:white;font-size:18px;borde
 
 <h2>Mibis Lingerie</h2>
 
-<div class="box">
 <label>Representante</label>
 <input id="representante">
 
@@ -36,7 +72,6 @@ button{width:100%;padding:15px;background:black;color:white;font-size:18px;borde
 
 <label>Retorno</label>
 <input id="retorno">
-</div>
 
 <table>
 
@@ -147,21 +182,21 @@ let marcados=document.querySelectorAll("input[type=checkbox]:checked")
 let lista=""
 
 marcados.forEach(function(item){
-lista+=item.value+"%0A"
+lista+=item.value+"\n"
 })
 
 let msg=
-"Pedido Mibis Lingerie%0A%0A"+
-"Representante: "+representante+"%0A"+
-"Revendedora: "+revendedora+"%0A"+
-"Cidade: "+cidade+"%0A"+
-"Código: "+codigo+"%0A"+
-"Retorno: "+retorno+"%0A%0A"+
+"Pedido Mibis Lingerie\n\n"+
+"Representante: "+representante+"\n"+
+"Revendedora: "+revendedora+"\n"+
+"Cidade: "+cidade+"\n"+
+"Código: "+codigo+"\n"+
+"Retorno: "+retorno+"\n\n"+
 lista
 
-let telefone="5551981517420"
+let url="https://wa.me/5551981517420?text="+encodeURIComponent(msg)
 
-window.open("https://wa.me/"+telefone+"?text="+msg)
+window.open(url,"_blank")
 
 }
 
