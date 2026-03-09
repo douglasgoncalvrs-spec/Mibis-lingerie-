@@ -6,42 +6,33 @@
 
 <style>
 body{
-font-family: Arial;
+font-family:Arial;
 padding:20px;
-background:#f4f4f4;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+td{
+padding:6px;
+border-bottom:1px solid #ddd;
 }
 
 h1{
 text-align:center;
 }
 
-form{
-background:white;
-padding:20px;
-border-radius:10px;
-}
-
-label{
-font-weight:bold;
-}
-
-input,select{
-width:100%;
-padding:10px;
-margin-top:5px;
-margin-bottom:15px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
 button{
-width:100%;
+margin-top:20px;
 padding:15px;
+width:100%;
+font-size:18px;
 background:black;
 color:white;
 border:none;
-border-radius:10px;
-font-size:18px;
+border-radius:8px;
 }
 </style>
 </head>
@@ -50,63 +41,99 @@ font-size:18px;
 
 <h1>Pedido Mibis Lingerie</h1>
 
-<form>
-
-<label>Nome da Revendedora</label>
-<input id="nome">
+<label>Revendedora</label>
+<input id="nome" style="width:100%;padding:10px">
 
 <label>Cidade</label>
-<input id="cidade">
+<input id="cidade" style="width:100%;padding:10px">
 
-<label>Produto</label>
-<select id="produto">
-<option>Tangas Variadas</option>
-<option>Cueca Feminina</option>
-<option>Fio Dental</option>
-<option>Tangão</option>
-<option>Calçola</option>
-<option>Sutiã com Bojo</option>
-<option>Sutiã sem Bojo</option>
-<option>Conjuntos</option>
-<option>Short Doll Adulto</option>
-<option>Short Doll Infantil</option>
-<option>Cueca Box Adulto</option>
-<option>Cueca Simples Adulto</option>
-<option>Cueca Infantil Box</option>
-<option>Cueca Infantil Simples</option>
-<option>Camisola Sexy</option>
-<option>Camisola Simples</option>
-<option>Roupas Senhoras</option>
-<option>Roupas Infantil</option>
-<option>Roupas Masculina</option>
-<option>Roupas Jovens</option>
-<option>Fantasias</option>
-<option>Meias Masculina</option>
-<option>Meias Feminina</option>
-<option>Meias Infantil</option>
-<option>Meias Social</option>
-</select>
+<br><br>
 
-<label>Tamanho</label>
-<select id="tamanho">
-<option>P</option>
-<option>M</option>
-<option>G</option>
-<option>GG</option>
-</select>
+<table>
 
-<label>Quantidade</label>
-<input id="quantidade" type="number">
+<tr>
+<td>Tangas Variadas</td>
+<td><input type="checkbox" value="Tangas P"></td>
+<td><input type="checkbox" value="Tangas M"></td>
+<td><input type="checkbox" value="Tangas G"></td>
+<td><input type="checkbox" value="Tangas GG"></td>
+</tr>
 
-<label>Endereço de Entrega</label>
-<input id="endereco">
+<tr>
+<td>Cueca Feminina</td>
+<td><input type="checkbox" value="Cueca Feminina P"></td>
+<td><input type="checkbox" value="Cueca Feminina M"></td>
+<td><input type="checkbox" value="Cueca Feminina G"></td>
+<td><input type="checkbox" value="Cueca Feminina GG"></td>
+</tr>
 
-<label>Observação</label>
-<input id="obs">
+<tr>
+<td>Fio Dental</td>
+<td><input type="checkbox" value="Fio Dental P"></td>
+<td><input type="checkbox" value="Fio Dental M"></td>
+<td><input type="checkbox" value="Fio Dental G"></td>
+<td><input type="checkbox" value="Fio Dental GG"></td>
+</tr>
 
-<button type="button" onclick="enviar()">Enviar Pedido</button>
+<tr>
+<td>Tangão</td>
+<td><input type="checkbox" value="Tangão P"></td>
+<td><input type="checkbox" value="Tangão M"></td>
+<td><input type="checkbox" value="Tangão G"></td>
+<td><input type="checkbox" value="Tangão GG"></td>
+</tr>
 
-</form>
+<tr>
+<td>Calçola</td>
+<td><input type="checkbox" value="Calçola P"></td>
+<td><input type="checkbox" value="Calçola M"></td>
+<td><input type="checkbox" value="Calçola G"></td>
+<td><input type="checkbox" value="Calçola GG"></td>
+</tr>
+
+<tr>
+<td>Sutiã com Bojo</td>
+<td><input type="checkbox" value="Sutiã com Bojo P"></td>
+<td><input type="checkbox" value="Sutiã com Bojo M"></td>
+<td><input type="checkbox" value="Sutiã com Bojo G"></td>
+<td><input type="checkbox" value="Sutiã com Bojo GG"></td>
+</tr>
+
+<tr>
+<td>Sutiã sem Bojo</td>
+<td><input type="checkbox" value="Sutiã sem Bojo P"></td>
+<td><input type="checkbox" value="Sutiã sem Bojo M"></td>
+<td><input type="checkbox" value="Sutiã sem Bojo G"></td>
+<td><input type="checkbox" value="Sutiã sem Bojo GG"></td>
+</tr>
+
+<tr>
+<td>Conjuntos</td>
+<td><input type="checkbox" value="Conjuntos P"></td>
+<td><input type="checkbox" value="Conjuntos M"></td>
+<td><input type="checkbox" value="Conjuntos G"></td>
+<td><input type="checkbox" value="Conjuntos GG"></td>
+</tr>
+
+<tr>
+<td>Short Doll Adulto</td>
+<td><input type="checkbox" value="Short Doll Adulto P"></td>
+<td><input type="checkbox" value="Short Doll Adulto M"></td>
+<td><input type="checkbox" value="Short Doll Adulto G"></td>
+<td><input type="checkbox" value="Short Doll Adulto GG"></td>
+</tr>
+
+<tr>
+<td>Short Doll Infantil</td>
+<td><input type="checkbox" value="Short Doll Infantil P"></td>
+<td><input type="checkbox" value="Short Doll Infantil M"></td>
+<td><input type="checkbox" value="Short Doll Infantil G"></td>
+<td><input type="checkbox" value="Short Doll Infantil GG"></td>
+</tr>
+
+</table>
+
+<button onclick="enviar()">Enviar Pedido</button>
 
 <script>
 
@@ -114,23 +141,22 @@ function enviar(){
 
 let nome = document.getElementById("nome").value
 let cidade = document.getElementById("cidade").value
-let produto = document.getElementById("produto").value
-let tamanho = document.getElementById("tamanho").value
-let quantidade = document.getElementById("quantidade").value
-let endereco = document.getElementById("endereco").value
-let obs = document.getElementById("obs").value
+
+let itens = document.querySelectorAll("input[type=checkbox]:checked")
+
+let lista = ""
+
+itens.forEach(function(item){
+lista += item.value + "%0A"
+})
 
 let mensagem =
-"Pedido Mibis Lingerie%0A%0A"+
+"Pedido Mibis%0A%0A"+
 "Revendedora: "+nome+"%0A"+
-"Cidade: "+cidade+"%0A"+
-"Produto: "+produto+"%0A"+
-"Tamanho: "+tamanho+"%0A"+
-"Quantidade: "+quantidade+"%0A"+
-"Endereço: "+endereco+"%0A"+
-"Observação: "+obs
+"Cidade: "+cidade+"%0A%0A"+
+lista
 
-let telefone = "5551SEUNUMERO"
+let telefone="5551SEUNUMERO"
 
 window.open("https://wa.me/"+telefone+"?text="+mensagem)
 
