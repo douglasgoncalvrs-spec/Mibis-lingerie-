@@ -70,8 +70,11 @@ margin-top:15px;
 <label>Código</label>
 <input id="codigo">
 
-<label>Retorno</label>
+<label>Acerto Previsto</label>
 <input id="retorno">
+
+<label>Observação</label>
+<input id="obs">
 
 <table>
 
@@ -176,6 +179,7 @@ let revendedora=document.getElementById("revendedora").value
 let cidade=document.getElementById("cidade").value
 let codigo=document.getElementById("codigo").value
 let retorno=document.getElementById("retorno").value
+let obs=document.getElementById("obs").value
 
 let marcados=document.querySelectorAll("input[type=checkbox]:checked")
 
@@ -191,7 +195,8 @@ let msg=
 "Revendedora: "+revendedora+"\n"+
 "Cidade: "+cidade+"\n"+
 "Código: "+codigo+"\n"+
-"Retorno: "+retorno+"\n\n"+
+"Acerto Previsto: "+retorno+"\n"+
+"Observação: "+obs+"\n\n"+
 lista
 
 let url="https://wa.me/5551981517420?text="+encodeURIComponent(msg)
