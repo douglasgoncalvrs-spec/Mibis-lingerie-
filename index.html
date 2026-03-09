@@ -1,41 +1,142 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Pedido Mibis Lingerie</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+font-family: Arial;
+padding:20px;
+background:#f4f4f4;
+}
+
+h1{
+text-align:center;
+}
+
+form{
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+label{
+font-weight:bold;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:5px;
+margin-bottom:15px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:15px;
+background:black;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+}
+</style>
 </head>
 
-<body style="font-family:Arial; padding:20px">
+<body>
 
-<h2>Pedido Mibis Lingerie</h2>
+<h1>Pedido Mibis Lingerie</h1>
 
 <form>
 
-<label>Nome da Revendedora</label><br>
-<input type="text" style="width:100%"><br><br>
+<label>Nome da Revendedora</label>
+<input id="nome">
 
-<label>Produto</label><br>
-<input type="text" style="width:100%"><br><br>
+<label>Cidade</label>
+<input id="cidade">
 
-<label>Tamanho</label><br>
-<select style="width:100%">
+<label>Produto</label>
+<select id="produto">
+<option>Tangas Variadas</option>
+<option>Cueca Feminina</option>
+<option>Fio Dental</option>
+<option>Tangão</option>
+<option>Calçola</option>
+<option>Sutiã com Bojo</option>
+<option>Sutiã sem Bojo</option>
+<option>Conjuntos</option>
+<option>Short Doll Adulto</option>
+<option>Short Doll Infantil</option>
+<option>Cueca Box Adulto</option>
+<option>Cueca Simples Adulto</option>
+<option>Cueca Infantil Box</option>
+<option>Cueca Infantil Simples</option>
+<option>Camisola Sexy</option>
+<option>Camisola Simples</option>
+<option>Roupas Senhoras</option>
+<option>Roupas Infantil</option>
+<option>Roupas Masculina</option>
+<option>Roupas Jovens</option>
+<option>Fantasias</option>
+<option>Meias Masculina</option>
+<option>Meias Feminina</option>
+<option>Meias Infantil</option>
+<option>Meias Social</option>
+</select>
+
+<label>Tamanho</label>
+<select id="tamanho">
 <option>P</option>
 <option>M</option>
 <option>G</option>
 <option>GG</option>
-</select><br><br>
+</select>
 
-<label>Quantidade</label><br>
-<input type="number" style="width:100%"><br><br>
+<label>Quantidade</label>
+<input id="quantidade" type="number">
 
-<label>Endereço de Entrega</label><br>
-<input type="text" style="width:100%"><br><br>
+<label>Endereço de Entrega</label>
+<input id="endereco">
 
-<button style="padding:10px 20px"> 
-Enviar Pedido
-</button>
+<label>Observação</label>
+<input id="obs">
+
+<button type="button" onclick="enviar()">Enviar Pedido</button>
 
 </form>
+
+<script>
+
+function enviar(){
+
+let nome = document.getElementById("nome").value
+let cidade = document.getElementById("cidade").value
+let produto = document.getElementById("produto").value
+let tamanho = document.getElementById("tamanho").value
+let quantidade = document.getElementById("quantidade").value
+let endereco = document.getElementById("endereco").value
+let obs = document.getElementById("obs").value
+
+let mensagem =
+"Pedido Mibis Lingerie%0A%0A"+
+"Revendedora: "+nome+"%0A"+
+"Cidade: "+cidade+"%0A"+
+"Produto: "+produto+"%0A"+
+"Tamanho: "+tamanho+"%0A"+
+"Quantidade: "+quantidade+"%0A"+
+"Endereço: "+endereco+"%0A"+
+"Observação: "+obs
+
+let telefone = "5551SEUNUMERO"
+
+window.open("https://wa.me/"+telefone+"?text="+mensagem)
+
+}
+
+</script>
 
 </body>
 </html>
