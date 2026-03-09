@@ -2,51 +2,54 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mibis Lingerie - Pedido Revendedora</title>
+<title>Pedidos Mibis Lingerie</title>
 
 <style>
 
 body{
 font-family:Arial;
-background:#f4f4f4;
+background:#fff0f6;
 padding:20px;
 }
 
 h2{
-text-align:center;
+color:#c2185b;
 }
 
-input{
-width:100%;
-padding:8px;
-margin-bottom:10px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-}
-
-td,th{
-padding:6px;
-border-bottom:1px solid #ddd;
-text-align:center;
-}
-
-.prod{
-text-align:left;
+label{
 font-weight:bold;
 }
 
-button{
+input,select{
 width:100%;
-padding:15px;
-background:black;
+padding:8px;
+margin-bottom:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#25D366;
 color:white;
-font-size:18px;
 border:none;
+padding:15px;
+width:100%;
+font-size:18px;
 border-radius:8px;
+margin-top:20px;
+}
+
+.produto{
+background:white;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+box-shadow:0 0 5px rgba(0,0,0,0.1);
+}
+
+.total{
+font-size:18px;
+font-weight:bold;
 margin-top:15px;
 }
 
@@ -56,7 +59,7 @@ margin-top:15px;
 
 <body>
 
-<h2>Mibis Lingerie</h2>
+<h2>Mibis Lingerie - Pedido</h2>
 
 <label>Representante</label>
 <input id="representante">
@@ -70,104 +73,93 @@ margin-top:15px;
 <label>Código</label>
 <input id="codigo">
 
-<label>Retorno</label>
+<label>Acerto Previsto</label>
 <input id="retorno">
 
-<table>
+<label>Observação</label>
+<input id="obs">
 
-<tr>
-<th>Produto</th>
-<th>P</th>
-<th>M</th>
-<th>G</th>
-<th>GG</th>
-</tr>
+<h3>Produtos</h3>
 
-<tr>
-<td class="prod">Tangas Variadas</td>
-<td><input type="checkbox" value="Tangas Variadas P"></td>
-<td><input type="checkbox" value="Tangas Variadas M"></td>
-<td><input type="checkbox" value="Tangas Variadas G"></td>
-<td><input type="checkbox" value="Tangas Variadas GG"></td>
-</tr>
+<div id="produtos"></div>
 
-<tr>
-<td class="prod">Cueca Feminina</td>
-<td><input type="checkbox" value="Cueca Feminina P"></td>
-<td><input type="checkbox" value="Cueca Feminina M"></td>
-<td><input type="checkbox" value="Cueca Feminina G"></td>
-<td><input type="checkbox" value="Cueca Feminina GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Fio Dental</td>
-<td><input type="checkbox" value="Fio Dental P"></td>
-<td><input type="checkbox" value="Fio Dental M"></td>
-<td><input type="checkbox" value="Fio Dental G"></td>
-<td><input type="checkbox" value="Fio Dental GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Tangão</td>
-<td><input type="checkbox" value="Tangão P"></td>
-<td><input type="checkbox" value="Tangão M"></td>
-<td><input type="checkbox" value="Tangão G"></td>
-<td><input type="checkbox" value="Tangão GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Calçola</td>
-<td><input type="checkbox" value="Calçola P"></td>
-<td><input type="checkbox" value="Calçola M"></td>
-<td><input type="checkbox" value="Calçola G"></td>
-<td><input type="checkbox" value="Calçola GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Sutiã com Bojo</td>
-<td><input type="checkbox" value="Sutiã com Bojo P"></td>
-<td><input type="checkbox" value="Sutiã com Bojo M"></td>
-<td><input type="checkbox" value="Sutiã com Bojo G"></td>
-<td><input type="checkbox" value="Sutiã com Bojo GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Sutiã sem Bojo</td>
-<td><input type="checkbox" value="Sutiã sem Bojo P"></td>
-<td><input type="checkbox" value="Sutiã sem Bojo M"></td>
-<td><input type="checkbox" value="Sutiã sem Bojo G"></td>
-<td><input type="checkbox" value="Sutiã sem Bojo GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Conjuntos</td>
-<td><input type="checkbox" value="Conjuntos P"></td>
-<td><input type="checkbox" value="Conjuntos M"></td>
-<td><input type="checkbox" value="Conjuntos G"></td>
-<td><input type="checkbox" value="Conjuntos GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Short Doll Adulto</td>
-<td><input type="checkbox" value="Short Doll Adulto P"></td>
-<td><input type="checkbox" value="Short Doll Adulto M"></td>
-<td><input type="checkbox" value="Short Doll Adulto G"></td>
-<td><input type="checkbox" value="Short Doll Adulto GG"></td>
-</tr>
-
-<tr>
-<td class="prod">Short Doll Infantil</td>
-<td><input type="checkbox" value="Short Doll Infantil P"></td>
-<td><input type="checkbox" value="Short Doll Infantil M"></td>
-<td><input type="checkbox" value="Short Doll Infantil G"></td>
-<td><input type="checkbox" value="Short Doll Infantil GG"></td>
-</tr>
-
-</table>
+<div class="total">
+Total de peças: <span id="total">0</span>
+</div>
 
 <button onclick="enviar()">Enviar Pedido</button>
 
 <script>
+
+let variedades=[
+"Tanga Variada",
+"Conjunto Renda",
+"Calcinha Algodão",
+"Conjunto Microfibra",
+"Sutiã Reforçado",
+"Baby Doll",
+"Short Doll",
+"Camisola",
+"Conjunto Sensual",
+"Calcinha Fio"
+]
+
+// você pode colocar até 300 produtos aqui
+
+function criarProdutos(){
+
+let container=document.getElementById("produtos")
+
+for(let i=0;i<variedades.length;i++){
+
+let div=document.createElement("div")
+div.className="produto"
+
+div.innerHTML=`
+
+<b>${variedades[i]}</b>
+
+<label>Tamanho</label>
+<select id="tam${i}">
+<option></option>
+<option>P</option>
+<option>M</option>
+<option>G</option>
+<option>GG</option>
+</select>
+
+<label>Quantidade</label>
+<input type="number" min="0" id="qtd${i}" oninput="somar()">
+
+`
+
+container.appendChild(div)
+
+}
+
+}
+
+criarProdutos()
+
+function somar(){
+
+let total=0
+
+for(let i=0;i<variedades.length;i++){
+
+let qtd=document.getElementById("qtd"+i)
+
+if(qtd && qtd.value){
+
+total+=parseInt(qtd.value)
+
+}
+
+}
+
+document.getElementById("total").innerText=total
+
+}
 
 function enviar(){
 
@@ -176,27 +168,38 @@ let revendedora=document.getElementById("revendedora").value
 let cidade=document.getElementById("cidade").value
 let codigo=document.getElementById("codigo").value
 let retorno=document.getElementById("retorno").value
+let obs=document.getElementById("obs").value
 
-let marcados=document.querySelectorAll("input[type=checkbox]:checked")
+let texto="PEDIDO MIBIS LINGERIE\n\n"
 
-let lista=""
+texto+="Representante: "+representante+"\n"
+texto+="Revendedora: "+revendedora+"\n"
+texto+="Cidade: "+cidade+"\n"
+texto+="Código: "+codigo+"\n\n"
 
-marcados.forEach(function(item){
-lista+=item.value+"\n"
-})
+texto+="Acerto Previsto: "+retorno+"\n"
+texto+="Observação: "+obs+"\n\n"
 
-let msg=
-"Pedido Mibis Lingerie\n\n"+
-"Representante: "+representante+"\n"+
-"Revendedora: "+revendedora+"\n"+
-"Cidade: "+cidade+"\n"+
-"Código: "+codigo+"\n"+
-"Retorno: "+retorno+"\n\n"+
-lista
+texto+="Produtos:\n"
 
-let url="https://wa.me/5551981517420?text="+encodeURIComponent(msg)
+for(let i=0;i<variedades.length;i++){
 
-window.open(url,"_blank")
+let tam=document.getElementById("tam"+i).value
+let qtd=document.getElementById("qtd"+i).value
+
+if(qtd>0){
+
+texto+=variedades[i]+" - "+tam+" - "+qtd+" peças\n"
+
+}
+
+}
+
+let numero="5551981517420"
+
+let url="https://wa.me/"+numero+"?text="+encodeURIComponent(texto)
+
+window.open(url)
 
 }
 
