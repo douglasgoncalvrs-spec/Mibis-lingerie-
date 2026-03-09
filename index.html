@@ -2,47 +2,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mibis Lingerie - Pedido</title>
+<title>Mibis Lingerie - Pedido Revendedora</title>
 
 <style>
 
 body{
 font-family:Arial;
-background:#ffe6f0;
+background:#f4f4f4;
 padding:20px;
 }
 
 h2{
-color:#cc0066;
+text-align:center;
 }
 
-label{
-font-weight:bold;
-}
-
-input,select{
+input{
 width:100%;
 padding:8px;
 margin-bottom:10px;
-border-radius:6px;
-border:1px solid #ccc;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+td,th{
+padding:6px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+.prod{
+text-align:left;
+font-weight:bold;
 }
 
 button{
-background:#25D366;
-color:white;
-border:none;
-padding:15px;
 width:100%;
+padding:15px;
+background:black;
+color:white;
 font-size:18px;
+border:none;
 border-radius:8px;
-}
-
-.produto{
-background:white;
-padding:10px;
-margin-bottom:10px;
-border-radius:8px;
+margin-top:15px;
 }
 
 </style>
@@ -65,67 +70,104 @@ border-radius:8px;
 <label>Código</label>
 <input id="codigo">
 
-<label>Acerto Previsto</label>
+<label>Retorno</label>
 <input id="retorno">
 
-<label>Observação</label>
-<input id="obs">
+<table>
 
-<h3>Produtos</h3>
+<tr>
+<th>Produto</th>
+<th>P</th>
+<th>M</th>
+<th>G</th>
+<th>GG</th>
+</tr>
 
-<div id="produtos"></div>
+<tr>
+<td class="prod">Tangas Variadas</td>
+<td><input type="checkbox" value="Tangas Variadas P"></td>
+<td><input type="checkbox" value="Tangas Variadas M"></td>
+<td><input type="checkbox" value="Tangas Variadas G"></td>
+<td><input type="checkbox" value="Tangas Variadas GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Cueca Feminina</td>
+<td><input type="checkbox" value="Cueca Feminina P"></td>
+<td><input type="checkbox" value="Cueca Feminina M"></td>
+<td><input type="checkbox" value="Cueca Feminina G"></td>
+<td><input type="checkbox" value="Cueca Feminina GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Fio Dental</td>
+<td><input type="checkbox" value="Fio Dental P"></td>
+<td><input type="checkbox" value="Fio Dental M"></td>
+<td><input type="checkbox" value="Fio Dental G"></td>
+<td><input type="checkbox" value="Fio Dental GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Tangão</td>
+<td><input type="checkbox" value="Tangão P"></td>
+<td><input type="checkbox" value="Tangão M"></td>
+<td><input type="checkbox" value="Tangão G"></td>
+<td><input type="checkbox" value="Tangão GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Calçola</td>
+<td><input type="checkbox" value="Calçola P"></td>
+<td><input type="checkbox" value="Calçola M"></td>
+<td><input type="checkbox" value="Calçola G"></td>
+<td><input type="checkbox" value="Calçola GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Sutiã com Bojo</td>
+<td><input type="checkbox" value="Sutiã com Bojo P"></td>
+<td><input type="checkbox" value="Sutiã com Bojo M"></td>
+<td><input type="checkbox" value="Sutiã com Bojo G"></td>
+<td><input type="checkbox" value="Sutiã com Bojo GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Sutiã sem Bojo</td>
+<td><input type="checkbox" value="Sutiã sem Bojo P"></td>
+<td><input type="checkbox" value="Sutiã sem Bojo M"></td>
+<td><input type="checkbox" value="Sutiã sem Bojo G"></td>
+<td><input type="checkbox" value="Sutiã sem Bojo GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Conjuntos</td>
+<td><input type="checkbox" value="Conjuntos P"></td>
+<td><input type="checkbox" value="Conjuntos M"></td>
+<td><input type="checkbox" value="Conjuntos G"></td>
+<td><input type="checkbox" value="Conjuntos GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Short Doll Adulto</td>
+<td><input type="checkbox" value="Short Doll Adulto P"></td>
+<td><input type="checkbox" value="Short Doll Adulto M"></td>
+<td><input type="checkbox" value="Short Doll Adulto G"></td>
+<td><input type="checkbox" value="Short Doll Adulto GG"></td>
+</tr>
+
+<tr>
+<td class="prod">Short Doll Infantil</td>
+<td><input type="checkbox" value="Short Doll Infantil P"></td>
+<td><input type="checkbox" value="Short Doll Infantil M"></td>
+<td><input type="checkbox" value="Short Doll Infantil G"></td>
+<td><input type="checkbox" value="Short Doll Infantil GG"></td>
+</tr>
+
+</table>
 
 <button onclick="enviar()">Enviar Pedido</button>
 
 <script>
-
-let variedades=[
-"Tanga Variada",
-"Conjunto Renda",
-"Calcinha Algodão",
-"Conjunto Microfibra",
-"Sutiã Reforçado",
-"Baby Doll",
-"Short Doll",
-"Camisola",
-"Conjunto Sensual",
-"Calcinha Fio"
-]
-
-function criarProdutos(){
-
-let container=document.getElementById("produtos")
-
-for(let i=0;i<variedades.length;i++){
-
-let div=document.createElement("div")
-div.className="produto"
-
-div.innerHTML=`
-
-<b>${variedades[i]}</b>
-
-<label>Tamanho</label>
-<select id="tam${i}">
-<option></option>
-<option>P</option>
-<option>M</option>
-<option>G</option>
-<option>GG</option>
-</select>
-
-<label>Quantidade</label>
-<input type="number" id="qtd${i}">
-
-`
-
-container.appendChild(div)
-
-}
-
-}
-
-criarProdutos()
 
 function enviar(){
 
@@ -134,36 +176,27 @@ let revendedora=document.getElementById("revendedora").value
 let cidade=document.getElementById("cidade").value
 let codigo=document.getElementById("codigo").value
 let retorno=document.getElementById("retorno").value
-let obs=document.getElementById("obs").value
 
-let texto="Pedido Mibis Lingerie\n\n"
+let marcados=document.querySelectorAll("input[type=checkbox]:checked")
 
-texto+="Representante: "+representante+"\n"
-texto+="Revendedora: "+revendedora+"\n"
-texto+="Cidade: "+cidade+"\n"
-texto+="Código: "+codigo+"\n\n"
+let lista=""
 
-texto+="Acerto Previsto: "+retorno+"\n"
-texto+="Observação: "+obs+"\n\n"
+marcados.forEach(function(item){
+lista+=item.value+"\n"
+})
 
-for(let i=0;i<variedades.length;i++){
+let msg=
+"Pedido Mibis Lingerie\n\n"+
+"Representante: "+representante+"\n"+
+"Revendedora: "+revendedora+"\n"+
+"Cidade: "+cidade+"\n"+
+"Código: "+codigo+"\n"+
+"Retorno: "+retorno+"\n\n"+
+lista
 
-let tam=document.getElementById("tam"+i).value
-let qtd=document.getElementById("qtd"+i).value
+let url="https://wa.me/5551981517420?text="+encodeURIComponent(msg)
 
-if(qtd>0){
-
-texto+=variedades[i]+" - "+tam+" - "+qtd+"\n"
-
-}
-
-}
-
-let numero="5551981517420"
-
-let url="https://wa.me/"+numero+"?text="+encodeURIComponent(texto)
-
-window.open(url)
+window.open(url,"_blank")
 
 }
 
